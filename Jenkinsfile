@@ -6,12 +6,10 @@ pipeline {
         VENV = ".venv"
     }
 
-    stages {
-        stage('Setup Python') {
+   stage('Setup Python') {
             steps {
                 echo 'Criando ambiente isolado e instalando dependências...'
                 sh '''
-                    sudo apt-get install -y python3-venv
                     python3 -m venv $VENV
                     $VENV/bin/pip install pytest
                 '''
